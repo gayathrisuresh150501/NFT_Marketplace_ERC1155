@@ -37,6 +37,38 @@ describe("Marketplace Contract ERC1155", function()
             expect(await hardhatToken.PEACOCK()).to.equal(10);
         });
 
+        it("NFT is minted successfully", async function() {
+           
+            expect(await hardhatToken.balanceOf(owner.address, 0)).to.equal(10);
+            expect(await hardhatToken.balanceOf(owner.address, 1)).to.equal(200);
+            expect(await hardhatToken.balanceOf(owner.address, 2)).to.equal(30);
+            expect(await hardhatToken.balanceOf(owner.address, 3)).to.equal(100);
+            expect(await hardhatToken.balanceOf(owner.address, 4)).to.equal(10);
+            expect(await hardhatToken.balanceOf(owner.address, 5)).to.equal(100);
+            expect(await hardhatToken.balanceOf(owner.address, 6)).to.equal(10);
+            expect(await hardhatToken.balanceOf(owner.address, 7)).to.equal(30);
+            expect(await hardhatToken.balanceOf(owner.address, 8)).to.equal(200);
+            expect(await hardhatToken.balanceOf(owner.address, 9)).to.equal(100);
+            expect(await hardhatToken.balanceOf(owner.address, 10)).to.equal(100);
+
+        });
+
+        it("Token URI is set sucessfully", async function() {
+        
+            expect(await hardhatToken.uri(0)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/0.json");
+            expect(await hardhatToken.uri(1)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/1.json");
+            expect(await hardhatToken.uri(2)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/2.json");
+            expect(await hardhatToken.uri(3)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/3.json");
+            expect(await hardhatToken.uri(4)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/4.json");
+            expect(await hardhatToken.uri(5)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/5.json");
+            expect(await hardhatToken.uri(6)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/6.json");
+            expect(await hardhatToken.uri(7)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/7.json");
+            expect(await hardhatToken.uri(8)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/8.json");
+            expect(await hardhatToken.uri(9)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/9.json");
+            expect(await hardhatToken.uri(10)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/10.json");
+
+        })
+
     });
 
    
