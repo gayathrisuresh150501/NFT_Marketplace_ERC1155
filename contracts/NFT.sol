@@ -50,10 +50,17 @@ contract NFT is ERC1155, Ownable
         _mint(account, id, amount, "");
     }
 
-    function burn(address account, uint id, uint amount) public
+    function burn(address account, uint id, uint amount) public returns(uint)
     {
         require(msg.sender == account);
         _burn(account, id, amount);
+        return balanceOf(account, id);
+
+    }
+
+    function _balanceOf(address _account, uint _id) public view returns(uint)
+    {
+        return balanceOf(_account, _id);
     }
 
      function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
@@ -63,4 +70,5 @@ contract NFT is ERC1155, Ownable
         _mintBatch(to, ids, amounts, data);
     }
     
+   
 }
