@@ -53,6 +53,26 @@ describe("Marketplace Contract ERC1155", function()
 
         });
 
+    
+
+        it("NFT burnt successfully", async function()
+        {
+            let tokenID = 1;
+            let burnCount = 5;
+            const balanceCheck = await hardhatToken._balanceOf(owner.address, tokenID) - burnCount;
+            // console.log(balanceCheck);
+            // console.log(await hardhatToken.burn(owner.address, tokenID, burnCount));
+            await hardhatToken.burn(owner.address, tokenID, burnCount);
+            expect(await hardhatToken._balanceOf(owner.address, tokenID)).to.equal(balanceCheck);
+            // await hardhatToken.connect(owner).safeTransferFrom(owner.address, addr1.address,0,5,0);
+            // expect(await hardhatToken.balanceOf(addr1.address)).to.equal(5);
+        });
+
+        it("Address Check", async function(){
+            expect(await owner.address).to.be.a.properAddress;
+        });
+
+
         it("Token URI is set sucessfully", async function() {
         
             expect(await hardhatToken.uri(0)).to.equal("https://ipfs.io/ipfs/QmWYUfRyoCGZtG9Ken97VSRrT8G9YUs4xbufJwoDNmaSfx/0.json");
